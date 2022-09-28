@@ -1,20 +1,22 @@
 package com.gildedrose;
 
+import com.gildedrose.items.Item;
+
 public class TexttestFixture {
     public static void main(String[] args) {
         System.out.println("OMGHAI!");
 
-        Item[] items = new Item[] {
-                new Item("+5 Dexterity Vest", 10, 20), //
-                new AgedBrieItem(2, 0), //
-                new Item("Elixir of the Mongoose", 5, 7), //
-                new HammerItem(15), //
-                new HammerItem(0),
-                new BackstagePassItem(15, 20),
-                new BackstagePassItem(10, 35),
-                new BackstagePassItem(5, 25),
-                // this conjured item does not work properly yet
-                new ConjuredItem("Conjured Mana Cake", 1, 6) };
+        Item[] items = new Item[]{
+                new Item("+5 Dexterity Vest", 10, 20),
+                new Item("Aged Brie", 2, 0),
+                new Item("Elixir of the Mongoose", 5, 7),
+                new Item("Sulfuras, Hand of Ragnaros", 15, 80),
+                new Item("Sulfuras, Hand of Ragnaros", 0, 80),
+                new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
+                new Item("Backstage passes to a TAFKAL80ETC concert", 10, 35),
+                new Item("Backstage passes to a TAFKAL80ETC concert", 5, 25),
+                new Item("Conjured Mana Cake", 2, 20)
+        };
 
         GildedRose app = new GildedRose(items);
 

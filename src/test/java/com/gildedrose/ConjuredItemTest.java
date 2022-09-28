@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.items.Item;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +11,7 @@ class ConjuredItemTest {
     @Test
     @DisplayName("Conjured Items should decrease in quality at twice the usual rate.")
     void conjuredItem() {
-        Item[] items = new Item[] { new ConjuredItem("Conjured Food", 1, 5) };
+        Item[] items = new Item[] { new Item("Conjured Food", 1, 5) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
@@ -22,7 +23,7 @@ class ConjuredItemTest {
     @Test
     @DisplayName("Conjured Items should decrease in quality at twice the usual rate, also when they are past the sellIn date.")
     void conjuredItemWithPassedSellInDate() {
-        Item[] items = new Item[] { new ConjuredItem("Conjured Food", 0, 5) };
+        Item[] items = new Item[] { new Item("Conjured Food", 0, 5) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();

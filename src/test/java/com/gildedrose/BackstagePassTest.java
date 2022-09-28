@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.items.Item;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -12,7 +13,7 @@ class BackstagePassTest {
     @ValueSource(ints = {10, 7, 6})
     @DisplayName("When the 'sell in' value is <= 10 && > 5, \"Backstage passes\" increase in quality by 2.")
     void backstagePass(int sellIn) {
-        Item[] items = new Item[] { new BackstagePassItem(sellIn, 5) };
+        Item[] items = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", sellIn, 5)};
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
@@ -25,7 +26,7 @@ class BackstagePassTest {
     @ValueSource(ints = {5, 1})
     @DisplayName("When the 'sell in' value is <= 5 && > 0, \"Backstage passes\" increase in quality by 3.")
     void lastMinuteBackstagePass(int sellIn) {
-        Item[] items = new Item[] { new BackstagePassItem(sellIn, 5) };
+        Item[] items = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", sellIn, 5)};
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
@@ -38,7 +39,7 @@ class BackstagePassTest {
     @ValueSource(ints = {0, -1})
     @DisplayName("When the 'sell in' value is 0 or less, \"Backstage passes\" drop to 0 quality.")
     void expiredBackstagePass(int sellIn) {
-        Item[] items = new Item[] { new BackstagePassItem(sellIn, 5) };
+        Item[] items = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", sellIn, 5)};
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();

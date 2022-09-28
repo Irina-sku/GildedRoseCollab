@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.items.Item;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +24,7 @@ class RegularItemTest {
     @Test
     @DisplayName("The quality of an item can never drop below zero.")
     void regularItemWithZeroQuality() {
-        Item[] items = new Item[] { new Item("food", 5, 0) };
+        Item[] items = new Item[] { new Item(    "food", 5, 0) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
