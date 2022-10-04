@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.items.AgedBrieItem;
 import com.gildedrose.items.Item;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ class AgedBrieTest {
     @Test
     @DisplayName("Each day \"Aged Brie\" increases in quality.")
     void agedBrie() {
-        Item[] items = new Item[]{new Item("Aged Brie", 3, 5)};
+        Item[] items = new Item[]{new AgedBrieItem("Aged Brie", 3, 5)};
 
         GildedRose app = new GildedRose(items);
 
@@ -24,7 +25,7 @@ class AgedBrieTest {
     @Test
     @DisplayName("Once the sell by date has passed, quality of \"Aged Brie\" increases twice as fast")
     void agedBrieNotSold() {
-        Item[] items = new Item[]{new Item("Aged Brie", -3, 5)};
+        Item[] items = new Item[]{new AgedBrieItem("Aged Brie", -3, 5)};
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
@@ -36,7 +37,7 @@ class AgedBrieTest {
     @Test
     @DisplayName("The Quality of an \"Aged Brie\" is never more than 50.")
     void agedBrieWithQualityFifty() {
-        Item[] items = new Item[]{new Item("Aged Brie", -3, 50)};
+        Item[] items = new Item[]{new AgedBrieItem("Aged Brie", -3, 50)};
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();

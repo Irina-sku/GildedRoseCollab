@@ -1,15 +1,44 @@
 package com.gildedrose.items;
 
-public class Item {
+public abstract class Item {
+
+    protected static final int MAX_QUALITY = 50;
+    protected static final int MIN_QUALITY = 0;
+    private static final int EXPIRED = 0;
 
     private final String name;
     private int sellIn;
     private int quality;
 
-    public Item(String name, int sellIn, int quality) {
+    protected Item(String name, int sellIn, int quality) {
         this.name = name;
         this.sellIn = sellIn;
-        this.quality = quality;
+        this.quality = validateQuality(quality);
+    }
+
+    public abstract void updateQuality();
+
+    protected boolean sellByDateHasPassed(int sellIn) {
+        return sellIn <= EXPIRED;
+    }
+
+    protected int validateQuality(int quality) {
+        if (quality <= MIN_QUALITY) {
+            return MIN_QUALITY;
+        }
+        return Math.min(quality, MAX_QUALITY);
+    }
+
+    public void increaseQuality() {
+        if (quality < MAX_QUALITY) {
+            incrementQuality();
+        }
+    }
+
+    public void decreaseQuality() {
+        if (quality > MIN_QUALITY) {
+            decrementQuality();
+        }
     }
 
     public void setQualityToZero() {
